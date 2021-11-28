@@ -1,0 +1,34 @@
+---
+- name: Include OS-specific parameters
+  include_vars: macos.yaml
+
+- name: print to stdout
+  command: echo "hello"
+  register: hello
+
+- debug: msg="{{ hello.stdout }}"
+
+- debug: msg="{{ hello.stderr }}"  
+
+- debug: msg="{{ name_betriebssystem }}"  
+
+#- name: Get infos on container
+#  docker_container_info:
+#    name: my_container
+#  register: result
+
+#- name: Does container exist?
+#  debug:
+#    msg: "The container {{ 'exists' if result.exists else 'does not exist' }}"
+
+#- name: Print the status of the container
+#  debug:
+#    msg: "The container status is {{ result.container['State']['Status'] }}"
+#  when: result.exists
+
+#- name: Create a data container
+#  docker_container:
+#    name: mycontainer
+#    image: hasangumus/docker101tutorial
+#    volumes:
+#      - /data

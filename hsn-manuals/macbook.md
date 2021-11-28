@@ -116,3 +116,19 @@ host1 | SUCCESS => {
     "changed": false,
     "ping": "pong"
 }
+
+Ansible benötigt – wie jedes Konfiguration-Management-System – Informationen über den Host, den es verwalten soll:
+
+Betriebsystem
+CPU
+RAM
+Netzwerk
+installierte Pakete
+...
+Um diese einzusammeln bzw. anzuzeigen gibt es das Modul setup:
+```
+ansible servers -m setup -i /etc/ansible/group_vars/node_servers.yml 
+```
+
+# Gute ansible tutorial
+https://www.informatik-aktuell.de/entwicklung/programmiersprachen/einfuehrung-in-ansible.html
